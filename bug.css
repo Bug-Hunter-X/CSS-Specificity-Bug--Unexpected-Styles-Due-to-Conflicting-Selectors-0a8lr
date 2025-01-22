@@ -1,0 +1,8 @@
+The CSS specificity rules can lead to unexpected styling behavior when selectors with equal specificity conflict.  For example, consider the following:
+
+```css
+.class1 { color: red; }
+#id1 .class1 { color: blue; }
+```
+
+If an element has both `class1` and `id1`, the rule `#id1 .class1` will win due to higher specificity, resulting in blue text even though `.class1` appears earlier.  This can be hard to debug as the conflicting rules may be far apart in the CSS file or even come from different sources (e.g., imported stylesheets).
